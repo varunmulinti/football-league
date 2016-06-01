@@ -1,0 +1,14 @@
+.myBtn{
+  background: transparent;
+  border: none;
+  color: black;
+}
+body {
+  background-image: url("football-min.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 70px;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
