@@ -1,0 +1,9 @@
+<div class="container" ng-repeat = "n in lc.response.teams" >
+  <div class="jumbotron">
+    {{n.name}} <br>
+    <!-- Number of teams: {{n.numberOfTeams}} <br>
+    Last Updated: {{n.lastUpdated}} <br> <br> -->
+   <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">show more</a>
+
+  </div>
+</div>
