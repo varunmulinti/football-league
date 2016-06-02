@@ -1,6 +1,4 @@
 .myBtn{
-  /*background: transparent;*/
-  border: none;
   color: black;
 }
 body {
@@ -17,5 +15,5 @@ body {
 }
 
 .leaguePage img{
-  float: right;
+  float: left;
 }

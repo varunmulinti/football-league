@@ -1,9 +1,10 @@
 <div class="container" ng-repeat = "n in dc.response" >
-  <div class="jumbotron">
+  <div class="jumbotron text-center">
     {{n.caption}} <br>
     Number of teams: {{n.numberOfTeams}} <br>
     Last Updated: {{n.lastUpdated}} <br> <br>
    <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">show Teams</a>
-
+   <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/fixtures" role="button">Fixtures</a>
+   <a class="btn btn-primary btn-lg myBtn" href="#/" role="button">Points Table</a>
   </div>
 </div>

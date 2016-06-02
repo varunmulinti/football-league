@@ -1,0 +1,12 @@
+<div class="container" ng-repeat = "n in fc.response.fixtures" >
+  <div class="jumbotron text-center">
+      Day:{{n.matchday}}<br>
+      Date:{{n.date}}<br>
+      {{n.homeTeamName}} vs {{n.awayTeamName}} <br>
+      {{n.result.goalsHomeTeam}} vs {{n.result.goalsAwayTeam}}<br>
+      Status:{{n.status}}<br>
+
+
+    <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">Show Full Team</a>
+  </div>
+</div>

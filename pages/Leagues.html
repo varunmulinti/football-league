@@ -1,9 +1,9 @@
 <div class="container" ng-repeat = "n in lc.response.teams" >
-  <div class="jumbotron leaguePage">
+  <div class="jumbotron leaguePage text-right">
     <img ng-src="{{n.crestUrl}}" class="img-responsive" width="120" height="100">
-    {{n.name}} ({{n.code}})<br>
+    {{n.name}} <span ng-hide="('{{n.code}}' === '')"> ({{(n.code)}})</span> <br>
     MarketValue:{{n.squadMarketValue}}<br><br>
-    <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">show Fixtures</a>
+    <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">Show Full Team</a>
 
   </div>
 </div>

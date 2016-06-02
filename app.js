@@ -13,6 +13,11 @@ angularApp.config(function ($routeProvider,$httpProvider){
     controller: 'LeagueController',
     controllerAs:'lc'
   })
+  .when('/leaguedetails/:uniqId/fixtures',{
+    templateUrl:'pages/match.html',
+    controller:'FixtureController',
+    controllerAs:'fc'
+  })
 });
 
 angularApp.controller("HomeController",['$resource','$http',function($resource,$http) {
@@ -26,6 +31,15 @@ angularApp.controller("LeagueController",['$resource','$http','$routeParams',fun
   var vm=this;
   var id = $routeParams.uniqId;
   var details = $resource('http://api.football-data.org/v1/soccerseasons/'+ id +'/teams')
+  vm.response = details.get();
+  console.log(vm.response);
+}]);
+
+
+angularApp.controller("FixtureController",['$resource','$http','$routeParams',function($resource,$http,$routeParams){
+  var vm = this;
+  var id = $routeParams.uniqId;
+  var details = $resource('http://api.football-data.org/v1/soccerseasons/'+ id +'/fixtures')
   vm.response = details.get();
   console.log(vm.response);
 }]);
