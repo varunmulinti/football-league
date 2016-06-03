@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading text-center">Points Table</div>
+
+  <!-- Table -->
+  <div class="table">
+    <table class="table table-hover">
+      <thead>
+                 <tr>
+                   <th>Position</th>
+                   <th></th>
+                   <th>Team</th>
+                   <th>Total</th>
+                   <th>won</th>
+                   <th>Lost</th>
+                   <th>Draws</th>
+                   <th>Goals</th>
+                   <th>Points</th>
+                 </tr>
+      </thead>
+      <tbody ng-repeat = "n in pc.response.standing">
+                 <tr>
+                   <td>{{n.position}}</td>
+                   <td><img ng-src="{{n.crestURI}}" class="img-responsive logo" width="50" height="50"></td>
+                   <td>{{n.teamName}}</td>
+                   <td>{{n.playedGames}}</td>
+                   <td>{{n.wins}}</td>
+                   <td>{{n.losses}}</td>
+                   <td>{{n.draws}}</td>
+                   <td>{{n.goals}}</td>
+                   <td>{{n.points}}</td>
+                 </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

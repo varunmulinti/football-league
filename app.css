@@ -14,6 +14,9 @@ body {
   font-size: 25px;
 }
 
-.leaguePage img{
+/*.leaguePage img{
   float: left;
+}*/
+.logo{
+float: right;
 }

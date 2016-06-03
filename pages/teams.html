@@ -1,0 +1,23 @@
+<!-- <div class="container" ng-repeat = "n in lc.response.teams" >
+  <div class="jumbotron leaguePage text-right">
+    <img ng-src="{{n.crestUrl}}" class="img-responsive" width="120" height="100">
+    <strong>{{n.name}}</strong> <small ng-hide="('{{n.code}}' === '')"> ({{n.code}})</small> <br>
+    MarketValue:{{n.squadMarketValue}}<br><br>
+
+
+  </div>
+</div> -->
+<div class="row ">
+  <div class="col-sm-6 col-md-4" ng-repeat = "n in lc.details.teams">
+    <div class="thumbnail">
+      <img ng-src="{{n.crestUrl}}" class="img-responsive logo" width="100" height="100">
+      <div class="caption">
+        <strong>{{n.name}}</strong> <small ng-hide="('{{n.code}}' === '')"> ({{n.code}})</small>
+        MarketValue:{{n.squadMarketValue}}
+         <p><a class="btn btn-primary btn-lg myBtn" ng-click = "lc.teamPlayers(n._links.players.href)" role="button">Full Team</a>
+         <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/" role="button">Team Fixtures</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

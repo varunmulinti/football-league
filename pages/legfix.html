@@ -1,4 +1,4 @@
-<div class="container" ng-repeat = "n in fc.response.fixtures" >
+<div class="container" ng-repeat = "n in fc.response.fixtures" ng-show="('{{n.matchday}}' === '34')">
   <div class="jumbotron text-center">
       Day:{{n.matchday}}<br>
       Date:{{n.date}}<br>

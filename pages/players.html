@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+
+  <!-- Table -->
+  <div class="table">
+    <table class="table table-hover">
+      <thead>
+                 <tr>
+                   <th>Name</th>
+                   <th>DOB</th>
+                   <th>Nationality</th>
+                   <th>JerseyNumber</th>
+                   <th>Position</th>
+                   <th>MarketValue</th>
+                   <th>contractuntill</th>
+                 </tr>
+      </thead>
+      <tbody ng-repeat = "n in lc.response.players">
+                 <tr>
+
+                   <td>{{n.name}}</td>
+                   <td>{{n.dateOfBirth}}</td>
+                   <td>{{n.nationality}}</td>
+                   <td>{{n.jerseyNumber}}</td>
+                   <td>{{n.position}}</td>
+                   <td>{{n.marketValue}}</td>
+                   <td>{{n.contractUntil}}</td>
+
+                 </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
