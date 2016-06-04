@@ -14,8 +14,8 @@
       <div class="caption">
         <strong>{{n.name}}</strong> <small ng-hide="('{{n.code}}' === '')"> ({{n.code}})</small>
         MarketValue:{{n.squadMarketValue}}
-         <p><a class="btn btn-primary btn-lg myBtn" ng-click = "lc.teamPlayers(n._links.players.href)" role="button">Full Team</a>
-         <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/" role="button">Team Fixtures</a>
+         <p><a class="btn btn-primary btn-lg myBtn" ng-click = "lc.teamPlayers(n._links.players.href,n.crestUrl,n.name,n.code)" role="button">Full Team</a>
+         <a class="btn btn-primary btn-lg myBtn" ng-click = "lc.teamFixtures(n._links.fixtures.href,n.crestUrl,n.name,n.code)" role="button">Team Fixtures</a>
         </p>
       </div>
     </div>

@@ -13,13 +13,6 @@ angularApp.config(function ($routeProvider,$httpProvider){
     controller: 'LeagueController',
     controllerAs:'lc'
   })
-
-  .when('/leaguedetails/teams/players',{
-    templateUrl:'pages/players.html',
-    controller: 'PlayersController',
-    controllerAs:'plc'
-})
-
   .when('/leaguedetails/:uniqId/fixtures',{
     templateUrl:'pages/legfix.html',
     controller:'FixtureController',
@@ -30,6 +23,17 @@ angularApp.config(function ($routeProvider,$httpProvider){
     controller:'PointsController',
     controllerAs:'pc'
   })
+  .when('/leaguedetails/team/playerDetails',{
+    templateUrl:'pages/players.html',
+    controller:'PlayerController',
+    controllerAs:'plc'
+  })
+  .when('/leaguedetails/team/teamFixtures',{
+    templateUrl:'pages/teamfix.html',
+    controller:'TeamfixController',
+    controllerAs:'tf'
+  })
+  .otherwise({ redirectTo: '/' });
 });
                                     //  --------------controller-------------------------
 
@@ -45,43 +49,24 @@ angularApp.controller("HomeController",['$resource',function($resource) {
 angularApp.controller("LeagueController",['$resource','$routeParams','TeamService','$location',function($resource,$routeParams,TeamService,$location){
   var vm=this;
   var id = $routeParams.uniqId;
-  // console.log(vm.teamImage);
-  // if(id !== undefined){
       vm.details = TeamService.getteams(id);
       console.log(vm.details);
-  // }
-  // vm.teamPlayers = function(data, img){
-  //   $location.url('/leaguedetails/teams/players');
-  //     var details =  $resource(data);
-  //     vm.response = details.get();
-  //     console.log(vm.response);
-  //     vm.teamImage = img;
-  //   }
+      vm.teamPlayers = function(url,img,name,code){
+        TeamService.api = url;
+        TeamService.img = img;
+        TeamService.teamname = name;
+        TeamService.teamcode = code;
+        $location.url('/leaguedetails/team/playerDetails');
+      }
+     vm.teamFixtures = function(url,img,name,code){
+        TeamService.api = url;
+        TeamService.img = img;
+        TeamService.teamname = name;
+        TeamService.teamcode = code;
+        $location.url('/leaguedetails/team/teamFixtures')
+      }
+
 }]);
-
-angularApp.controller('PlayersController',['$resource','$location','TeamService',function($resource,$location,TeamService){
-  // vm.teamPlayers = function(data){
-  //   var vm = this;
-  //   vm.details = TeamService.getplayers(data);
-  // }
-  var vm =this;
-  vm.teamPlayers = function(data){
-    $location.url('/leaguedetails/teams/players');
-    console.log(data);
-      vm.details = TeamService.getplayers(data);
-      console.log(vm.details);
-    }
-
-}])
-
-
-
-
-
-
-
-
-
 
 angularApp.controller("FixtureController",['$resource','$routeParams',function($resource,$routeParams){
   var vm = this;
@@ -99,23 +84,48 @@ angularApp.controller("PointsController",['$resource','$routeParams',function($r
   console.log(vm.response);
 }]);
 
+angularApp.controller("PlayerController",['$resource','$routeParams','TeamService',function($resource,$routeParams,TeamService){
+  var vm = this;
+  vm.image = TeamService.img;
+  vm.teamname = TeamService.teamname;
+  vm.teamcode = TeamService.teamcode;
+  var playerUrl = TeamService.api;
+  var data = $resource(playerUrl);
+  vm.playersDetail = data.get();
+  console.log(vm.playersDetail);
+}])
+
+angularApp.controller("TeamfixController",['$resource','$routeParams','TeamService',function($resource,$routeParams,TeamService){
+  var vm = this;
+  vm.image = TeamService.img;
+  vm.teamname = TeamService.teamname;
+  vm.teamcode = TeamService.teamcode;
+  var fixUrl = TeamService.api;
+  var data = $resource(fixUrl);
+  vm.fixdata = data.get();
+  console.log(vm.fixdata);
+}])
+
+
+
+
+
+
+
                                 //  ----------------service-------------------
 
 
 
-angularApp.service('TeamService',function($resource){
+angularApp.service('TeamService',function($resource,$routeParams){
   var vm =this;
+  vm.api = "";
+  vm.img = "";
+  vm.teamname = "";
+  vm.teamcode = "";
       vm.getteams = function(id){
       var details = $resource('http://api.football-data.org/v1/soccerseasons/'+ id +'/teams')
       vm.response = details.get();
       return vm.response;
       console.log(vm.response);
       }
-
-      vm.getplayers = function(data){
-          var playerdetails =  $resource(data);
-          vm.playerresponse = details.get();
-          return vm.playerresponse;
-          console.log(vm.playerresponse);
-      }
-});
+  });

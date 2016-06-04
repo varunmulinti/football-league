@@ -2,20 +2,24 @@
   <!-- Default panel contents -->
 
   <!-- Table -->
+  <div class="row">
+      <div class="col-md-3"><img ng-src="{{plc.image}}" class="img-responsive" width="200" height="200"></div>
+      <div class="col-md-6"><h1><strong>{{plc.teamname}}<br><small>{{plc.teamcode}}</small></strong></h1></div>
+  </div>
   <div class="table">
     <table class="table table-hover">
       <thead>
                  <tr>
-                   <th>Name</th>
-                   <th>DOB</th>
-                   <th>Nationality</th>
-                   <th>JerseyNumber</th>
-                   <th>Position</th>
-                   <th>MarketValue</th>
-                   <th>contractuntill</th>
+                   <th><strong>Name</strong></th>
+                   <th><strong>DOB</strong></th>
+                   <th><strong>Nationality</strong></th>
+                   <th><strong>JerseyNumber</strong></th>
+                   <th><strong>Position</strong></th>
+                   <th><strong>MarketValue</strong></th>
+                   <th><strong>contractuntill</strong></th>
                  </tr>
       </thead>
-      <tbody ng-repeat = "n in lc.response.players">
+      <tbody ng-repeat = "n in plc.playersDetail.players">
                  <tr>
 
                    <td>{{n.name}}</td>

@@ -1,12 +1,13 @@
-<div class="container" ng-repeat = "n in fc.response.fixtures" ng-show="('{{n.matchday}}' === '34')">
+<div class="container" ng-repeat = "n in fc.response.fixtures" >
   <div class="jumbotron text-center">
-      Day:{{n.matchday}}<br>
-      Date:{{n.date}}<br>
+      <span id = "left">Day:{{n.matchday}}</span>
+      <span id = "right">{{n.date | date:'dd-MM-yy'}}</span><br>
       {{n.homeTeamName}} vs {{n.awayTeamName}} <br>
       {{n.result.goalsHomeTeam}} vs {{n.result.goalsAwayTeam}}<br>
       Status:{{n.status}}<br>
 
 
-    <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">Show Full Team</a>
+    <!-- <a class="btn btn-primary btn-lg myBtn" href="#/leaguedetails/{{n.id}}/teams" role="button">Show Full Team</a> -->
   </div>
 </div>
+<!-- ding-show="('{{n.matchday}}' === '34') -->

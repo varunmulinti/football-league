@@ -20,3 +20,9 @@ body {
 .logo{
 float: right;
 }
+#left{
+  float: left;
+}
+#right{
+  float:right;
+}
